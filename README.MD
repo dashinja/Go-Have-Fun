@@ -1,7 +1,9 @@
 ### References
 
-https://go101.org/article/101.html 
+https://go101.org/article/101.html
+
 https://go.dev/doc/faq
+
 https://go.dev/blog/slices-intro
 
 
