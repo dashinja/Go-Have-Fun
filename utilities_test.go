@@ -30,27 +30,23 @@ func TestReverseInts(t *testing.T) {
 }
 
 func TestGetFunctionName(t *testing.T) {
-	// type args struct {
-	// 		func(int) int
-	// }
-
 	type args struct {
-		args func (int) int
+		i interface{}
 	}
 	tests := []struct {
 		name string
-		args operationFuncMulti
+		args args
 		want string
 	}{
 		{
 			name: "should produce function name",
-			args: Adder,
+			args: args{Adder},
 			want: "example.Adder",
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := GetFunctionName(tt.args); got != tt.want {
+			if got := GetFunctionName(tt.args.i); got != tt.want {
 				t.Errorf("GetFunctionName() = %v, want %v", got, tt.want)
 			}
 		})
