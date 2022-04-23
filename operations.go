@@ -1,7 +1,6 @@
 package main
 
 func Operation(operationType func(...int) int, args ...int) (z int) {
-	// func Operation(operationType func(...int) int, args ...int) (z int) {
 	if GetFunctionName(operationType) == "main.Square" {
 		println("Function name is: ", GetFunctionName(operationType))
 
