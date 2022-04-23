@@ -1,6 +1,8 @@
 package main
 
 //TODO: https://go101.org/article/101.html is YOUR FRIEND
+//NOTE: https://go.dev/doc/faq
+//NOTE: https://go.dev/blog/slices-intro
 
 import (
 	"fmt"
