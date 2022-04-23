@@ -11,8 +11,6 @@ func main() {
 	reverseInputs := ReverseInts(Inputs)
 	fmt.Printf("inputs: %d\n", Inputs)
 	fmt.Printf("reverseInputs %d\n: ", reverseInputs)
-	// answer := Adder(inputs...)
-	// complexAnswer := Operation(Adder, inputs...)
 
 	for _, v := range OperationSlice {
 		var res = 0
