@@ -1,9 +1,18 @@
 package main
 
 func Operation(operationType func(...int) int, args ...int) (z int) {
+	if GetFunctionName(operationType) == "main.Square" {
+		println("Function name is: ", GetFunctionName(operationType))
+
+		z = Square(args[0])
+		return z
+	}
 	z = operationType(args...)
 	return z
 }
+
+//TODO: What can I do with the below line?
+// type operationType func(...int) int
 
 func Adder(args ...int) int {
 	z := 0
@@ -52,7 +61,7 @@ func Max(args ...int) int {
 }
 
 func Min(args ...int) int {
-	z := args[len(args) - 1]
+	z := args[len(args)-1]
 	for _, v := range args {
 		if z > v {
 			z = v
@@ -62,5 +71,5 @@ func Min(args ...int) int {
 }
 
 func Square(arg int) int {
-	return arg*arg
+	return arg * arg
 }
