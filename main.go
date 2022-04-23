@@ -4,31 +4,30 @@ import (
 	"fmt"
 )
 
+var Inputs = []int{2, 40, 2500}
+
 func main() {
 
-	inputs := []int {1000, 100000, 1000000000}
-	reverseInputs := ReverseInts(inputs)
-	fmt.Printf("inputs: %d\n", inputs)
+	reverseInputs := ReverseInts(Inputs)
+	fmt.Printf("inputs: %d\n", Inputs)
 	fmt.Printf("reverseInputs %d\n: ", reverseInputs)
-	answer := Adder(inputs...)
-	complexAnswer := Operation(Adder, inputs...)
-	
-	fmt.Println("Adder number is: ", answer)
-	fmt.Println("Adder Equivalence: ", complexAnswer)
-	fmt.Println("operationAdd5: ", operationAdd5(inputs...))
-	fmt.Println("Subtract number is: ", Subtract(inputs...))
-	fmt.Println("Multiply number is: ", Multiply(inputs...))
-	fmt.Println("Divide number is: ", Divide(inputs...))
-	fmt.Println("Divide reverse slice number is: ", Divide(reverseInputs...))
-	fmt.Println("max number is: ", Max(inputs...))
-	fmt.Println("min number is: ", Min(inputs...))
-	fmt.Println("Square number is: ", Square(inputs[2]))
+	// answer := Adder(inputs...)
+	// complexAnswer := Operation(Adder, inputs...)
+
+	for _, v := range OperationSlice {
+		var res = 0
+		var inputUsed = Inputs
+
+		if GetFunctionName(v) == "main.Divide" {
+			println("Function name is 'Divide' so reverse the input order for division:")
+
+			res = Operation(v, reverseInputs...)
+			inputUsed = reverseInputs
+		} else {
+			res = Operation(v, Inputs...)
+		}
+		fmt.Printf("%s(%d): %v\n\n", GetFunctionName(v),inputUsed, res)
+	}
 }
 
-
-var operationAdd5 = func (args ...int) int {
-	sliceOf5 := []int {5}
-	appendedSlice := append(args, sliceOf5...)
-	return Operation(Adder, Adder(appendedSlice...))
-}
 

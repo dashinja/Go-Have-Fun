@@ -1,6 +1,7 @@
 package main
 
 func Operation(operationType func(...int) int, args ...int) (z int) {
+	// func Operation(operationType func(...int) int, args ...int) (z int) {
 	if GetFunctionName(operationType) == "main.Square" {
 		println("Function name is: ", GetFunctionName(operationType))
 
@@ -12,7 +13,17 @@ func Operation(operationType func(...int) int, args ...int) (z int) {
 }
 
 //TODO: What can I do with the below line?
-// type operationType func(...int) int
+type operationFuncMulti func(...int) int
+// type operationFunc func(int) int
+// type operationType interface {
+// 	operationFunc
+// 	operationFuncMulti
+// }
+
+// type operationList interface {
+// 	func(...int) int
+// 	func(int) int
+// }
 
 func Adder(args ...int) int {
 	z := 0
@@ -72,4 +83,20 @@ func Min(args ...int) int {
 
 func Square(arg int) int {
 	return arg * arg
+}
+
+var operationAdd5 = func(args ...int) int {
+	sliceOf5 := []int{5}
+	appendedSlice := append(args, sliceOf5...)
+	return Operation(Adder, Adder(appendedSlice...))
+}
+
+var OperationSlice = []operationFuncMulti{
+	Adder,
+	Subtract,
+	Multiply,
+	Divide,
+	Max,
+	Min,
+	operationAdd5,
 }
