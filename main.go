@@ -9,11 +9,11 @@ import (
 func main() {
 
 	answer := Adder(1,2,3,4,5)
-	fmt.Print(answer)
 	inputs := []int {1,2,3,4,5}
 	complexAnswer := Operation(Adder, inputs...)
+	
+	fmt.Print(answer)
 	fmt.Println("complexAnswer: ", complexAnswer)
-	fmt.Println("wow answer: ", operationAdd5(1,2,3,4,5,6,7,8))
 	fmt.Println("wow answer dot dot dot: ", operationAdd5(inputs...))
 }
 
