@@ -1,58 +1,8 @@
 package main
 
-func Operation(operationType func(...int) int, args ...int) (z int) {
-	z = operationType(args...)
-	return z
-}
-
-func Adder(args ...int) int {
-	z := 0
-	for _, v := range args {
-		z += v
+func ReverseInts(input []int) []int {
+	if len(input) == 0 {
+		return input
 	}
-	return z
-}
-
-func Subtract(args ...int) int {
-	z := 0
-	for _, v := range args {
-		z -= v
-	}
-	return z
-}
-
-func Multiply(args ...int) int {
-	z := 0
-	for _, v := range args {
-		z *= v
-	}
-	return z
-}
-
-func Divide(args ...int) int {
-	z := 0
-	for _, v := range args {
-		z /= v
-	}
-	return z
-}
-
-func Max(args ...int) int {
-	z := 0
-	for _, v := range args {
-		if v > z {
-			z = v
-		}
-	}
-	return z
-}
-
-func Min(args ...int) int {
-	z := args[len(args) - 1]
-	for _, v := range args {
-		if z > v {
-			z = v
-		}
-	}
-	return z
+	return append(ReverseInts(input[1:]), input[0])
 }
