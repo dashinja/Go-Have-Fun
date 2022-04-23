@@ -1,8 +1,6 @@
 package main
 
-//TODO: https://go101.org/article/101.html is YOUR FRIEND
-//NOTE: https://go.dev/doc/faq
-//NOTE: https://go.dev/blog/slices-intro
+
 
 import (
 	"fmt"
@@ -19,48 +17,10 @@ func main() {
 	fmt.Println("wow answer dot dot dot: ", operationAdd5(inputs...))
 }
 
-func Operation(operationType func(...int) int , args ...int) (z int) {
-	z = operationType(args...)
-	return z
-}
-// func Operation(operationType func([]int) int, args ...int) (int z) {
-// 	z := operationType(args)
-// 	return z
-// }
+
 var operationAdd5 = func (args ...int) int {
 	sliceOf5 := []int {5}
 	appendedSlice := append(args, sliceOf5...)
 	return Operation(Adder, Adder(appendedSlice...))
 }
 
-func Adder(args ...int) int {
-	z := 0
-	for _, v := range args {
-		z += v
-	}
-	return z
-}
-
-func Subtract(args []int) int {
-	z := 0
-	for _, v := range args {
-		z -= v
-	}
-	return z
-}
-
-func multiply(args []int) int {
-	z := 0
-	for _, v := range args {
-		z *= v
-	}
-	return z
-}
-
-func divide(args []int) int {
-	z := 0
-	for _, v := range args {
-		z /= v
-	}
-	return z
-}
