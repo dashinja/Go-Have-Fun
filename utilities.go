@@ -13,7 +13,7 @@ func Adder(args ...int) int {
 	return z
 }
 
-func Subtract(args []int) int {
+func Subtract(args ...int) int {
 	z := 0
 	for _, v := range args {
 		z -= v
@@ -21,7 +21,7 @@ func Subtract(args []int) int {
 	return z
 }
 
-func Multiply(args []int) int {
+func Multiply(args ...int) int {
 	z := 0
 	for _, v := range args {
 		z *= v
@@ -29,7 +29,7 @@ func Multiply(args []int) int {
 	return z
 }
 
-func Divide(args []int) int {
+func Divide(args ...int) int {
 	z := 0
 	for _, v := range args {
 		z /= v
